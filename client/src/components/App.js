@@ -1,22 +1,26 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import styled from 'styled-components'
+import ColumnSelect from './Columns/ColumnSelect'
+import Loading from './Loading'
 
-import store from '../store'
+// import HCTest from './HCTest'
 
 const App = () => {
   return (
-    <Provider store={store}>
+    <div>
+      <Loading />
       <StyledApp className='App'>
-        React App Here
+        <h3>Birdie Technical Test Application</h3>
+        <ColumnSelect />
+        {/* table */}
       </StyledApp>
-    </Provider>
+    </div>
   )
 }
 
 const StyledApp = styled.div`
-  &.App {
-    color: red;
+  h3 {
+    color: #57c6c0;
   }
 `
 
