@@ -25,16 +25,25 @@ const port = 5000
 // Server Heath Check
 app.get('/hc', (req, res) => {
   const running = `I'm alive!`
-  res.send(running)
+  res.json(running)
 })
 
-// Get x amount of data
-app.get('/getdata/:amount', (req, res) => {
-  let sql = `SELECT * FROM birdietest.census_learn_sql LIMIT ${req.params.amount}`
+// Get all columns
+app.get('/getcolumns', (req, res) => {
+  let sql = `SHOW columns FROM birdietest.census_learn_sql`
   let query = db.query(sql, (err, results) => {
     if (err) throw err
     res.json(results)
     // res.send('data fetched')
+  })
+})
+
+// Get selected column data
+app.get('/getcolumndata/:column', (req, res) => {
+  let sql = `SELECT \`${req.params.column}\`, count(\`${req.params.column}\`) AS count, AVG(age) AS averageAge from birdietest.census_learn_sql GROUP BY \`${req.params.column}\` LIMIT 100`
+  let query = db.query(sql, (err, results) => {
+    if (err) console.log(err)
+    res.json(results)
   })
 })
 
