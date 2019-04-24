@@ -1,11 +1,16 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 import styled from 'styled-components'
 
-function App() {
+import store from '../store'
+
+const App = () => {
   return (
-    <StyledApp className='App'>
-      React App Here
-    </StyledApp>
+    <Provider store={store}>
+      <StyledApp className='App'>
+        React App Here
+      </StyledApp>
+    </Provider>
   )
 }
 
