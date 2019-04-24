@@ -4,7 +4,11 @@
   "description": "Birdie Techincal Test App",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "client-install": "cd client && npm install",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \" npm run client\" "
   },
   "repository": {
     "type": "git",
