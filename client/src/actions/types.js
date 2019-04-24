@@ -1,0 +1,6 @@
+export const HC_TEST = 'HC_TEST'
+export const SET_LOADING_ADD = 'SET_LOADING_ADD'
+export const SET_LOADING_MINUS = 'SET_LOADING_MINUS'
+export const SET_COLUMNS = 'SET_COLUMNS'
+export const SELECT_COLUMN = 'SELECT_COLUMN'
+export const SET_COLUMN_DATA = 'SET_COLUMN_DATA'
