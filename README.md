@@ -4,6 +4,8 @@
 
 > Application should allow to select a column (amongst demographic data), then display, for each different value in this column, number of lines with this value, and "age" value average. Values must be sorted by decreasing order. One can display only 100 first values.
 
+> *A confirm file is required to access the database. Please create a config.js file in the root directory and include a JSON with the required information.  *
+
 ## Quick Start
 
 ```bash
