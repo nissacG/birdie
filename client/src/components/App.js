@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import ColumnSelect from './Columns/ColumnSelect'
 import Loading from './Loading'
+import ColumnSelect from './Columns/ColumnSelect'
+import TableMain from './Table/TableMain'
 
 // import HCTest from './HCTest'
 
@@ -12,7 +13,7 @@ const App = () => {
       <StyledApp className='App'>
         <h3>Birdie Technical Test Application</h3>
         <ColumnSelect />
-        {/* table */}
+        <TableMain />
       </StyledApp>
     </div>
   )
