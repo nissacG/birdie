@@ -4,6 +4,19 @@
 
 > Application should allow to select a column (amongst demographic data), then display, for each different value in this column, number of lines with this value, and "age" value average. Values must be sorted by decreasing order. One can display only 100 first values.
 
+### _A config file is required to access the database. Please create a `config.js` in the root directory which follows the schema below_
+
+```bash
+const config = {
+  host: 'hosthere',
+  port: porthere,
+  user: 'userhere',
+  password: 'passwordhere'
+}
+
+module.exports = config
+```
+
 ## Quick Start
 
 ```bash
