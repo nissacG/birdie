@@ -7,7 +7,8 @@ const db = mysql.createConnection({
   host     : config.host,
   port     : config.port,
   user     : config.user,
-  password : config.password
+  password : config.password,
+  multipleStatements: true
 })
 
 // Db connection
@@ -40,8 +41,9 @@ app.get('/getcolumns', (req, res) => {
 
 // Get selected column data
 app.get('/getcolumndata/:column', (req, res) => {
-  let sql = `SELECT \`${req.params.column}\`, count(\`${req.params.column}\`) AS count, AVG(age) AS averageAge from birdietest.census_learn_sql GROUP BY \`${req.params.column}\` LIMIT 100`
-  let query = db.query(sql, (err, results) => {
+  let sql = `SELECT \`${req.params.column}\`, count(\`${req.params.column}\`) AS count, AVG(age) AS averageAge from birdietest.census_learn_sql GROUP BY \`${req.params.column}\` LIMIT 100;
+            SELECT COUNT(DISTINCT(\`${req.params.column}\`)) AS total_values FROM birdietest.census_learn_sql`
+  let query = db.query(sql, [1,2], (err, results) => {
     if (err) console.log(err)
     res.json(results)
   })

@@ -1,4 +1,4 @@
-import { HC_TEST, SET_COLUMNS, SELECT_COLUMN, SET_COLUMN_DATA } from './types'
+import { HC_TEST, SET_COLUMNS, SELECT_COLUMN, SET_COLUMN_DATA, SET_DATA_COUNT } from './types'
 import { setLoadingAdd, setLoadingMinus } from './ui'
 import { hc, getColumns, getColumnData } from '../providers/index'
 
@@ -21,6 +21,11 @@ const selectColumn = column => ({
 const setColumnsData = data => ({
   type: SET_COLUMN_DATA,
   data
+})
+
+const setDataCount = count => ({
+  type: SET_DATA_COUNT,
+  count
 })
 
 // ACTION CREATORS (call these from components)
@@ -52,7 +57,8 @@ export const columnSelect = column => dispatch => {
 
   getColumnData(column)
     .then((data) => {
-      dispatch(setColumnsData(data))
+      dispatch(setColumnsData(data[0]))
+      dispatch(setDataCount(data[1][0].total_values))
       dispatch(setLoadingMinus())
     })
     .catch(err => {
