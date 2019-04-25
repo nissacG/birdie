@@ -1,9 +1,11 @@
-import { HC_TEST, SET_COLUMNS, SELECT_COLUMN } from '../actions/types'
+import { HC_TEST, SET_COLUMNS, SELECT_COLUMN, SET_COLUMN_DATA, SET_DATA_COUNT } from '../actions/types'
 
 const initialState = {
   hc: '',
   columns: [],
-  selectedColumn: 'gh'
+  selectedColumn: '',
+  columnData: [],
+  count: 0
 }
 
 export default function(state = initialState, action) {
@@ -22,6 +24,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedColumn: action.column
+      }
+    case SET_COLUMN_DATA:
+      return {
+        ...state,
+        columnData: action.data.sort((a, b) => b.count - a.count)
+      }
+    case SET_DATA_COUNT:
+      return {
+        ...state,
+        count: action.count
       }
     default:
       return state
