@@ -23,7 +23,7 @@ export class Select extends Component {
 }
 
 const StyledReactSelect = styled(ReactSelect)`
-  max-width: 200px;
+  width: 300px;
 `
 
 Select.propTypes = {
